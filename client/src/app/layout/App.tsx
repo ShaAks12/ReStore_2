@@ -1,9 +1,9 @@
 // import { useEffect, useState } from "react"
 // import { Product } from "../models/product";
 import { useState } from "react";
-import Catalog from "../../features/catalog/catalog";
 import Header from './Header';
 import { Container, CssBaseline, ThemeProvider, createTheme } from "@mui/material";
+import { Outlet } from "react-router-dom";
 
 function App() {
   const[darkMode,setDarkMode] = useState(false);
@@ -30,8 +30,7 @@ function App() {
     <CssBaseline />
       <Header darkMode={darkMode} handleToggle={handletogglerButton} />
       <Container>
-        <Catalog  />
-
+        <Outlet />
       </Container>
 
     </ThemeProvider>
