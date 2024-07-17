@@ -11,6 +11,16 @@ namespace API.Data
             var products = new List<Product>
             {
                 new Product
+                 {
+                    Name = "Ice Cream",
+                    Description ="The finest desert one  can ever have  after their meals",
+                    Price = 22000,
+                    PictureUrl = "/images/products/ice-sb.jbg",
+                    Brand = "Quality Walls",
+                    Type = "Vanilla",
+                    QuantityInStock = 100
+                },
+                new Product
                 {
                     Name = "Angular Speedster Board 2000",
                     Description =

@@ -28,6 +28,14 @@ namespace API.Data.Migrations
                 {
                     table.PrimaryKey("PK_Products", x => x.Id);
                 });
+
+            // migrationBuilder.InsertData(
+            //     table: "Products",
+            //     column: "MyColumn",
+            //     value: "Test"
+            // );
+
+
         }
 
         /// <inheritdoc />

@@ -1,6 +1,8 @@
 import { Product } from '../../app/models/product';
 import ProductList from './ProductList';
 import { useState, useEffect } from 'react';
+import agent from '../../app/api/agent'
+import LoadingComponent from '../../app/layout/LoadingComponent';
 
 // interface Props{
 //     products:Product[];
@@ -10,21 +12,17 @@ import { useState, useEffect } from 'react';
 
 const catalog = () => {
   const [product,setProduct] = useState<Product[]>([]);
+  const [loading,setLoading] = useState(true);
 
     useEffect(() => {
-      fetch('http://localhost:5000/api/products')
-        .then(resp => resp.json())
-        .then(data => setProduct(data))
-    },[])
-    
-
-
-   
-        
+      agent.Catalog.list()
+      .then(products => setProduct(products))
+      .catch(err => console.log(err))
+      .finally(() => setLoading(false))
+    },[])    
         // setName('');
         // setAge('');
-    
-
+    if(loading) return <LoadingComponent message="Loading Products" />
 
     //props.addProduct();
   return (
